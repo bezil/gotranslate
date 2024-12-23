@@ -9,27 +9,18 @@
 
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />  
+    <script src="/public/wasm_exec.js"></script>
+    <script src="/public/webgl-debug.js"></script>
     <script>
         const go = new Go();
         WebAssembly.instantiateStreaming(fetch("{{wasmUrl}}"), go.importObject).then((result) => {
             go.run(result.instance);
+        }).catch((err) => {
+            console.error('WASM loading failed:', err);
         });
     </script>
   </head>
   <body>
-    
-    <!-- this is the start of content -->
-    <h1>
-      {{ greeting }}
-    </h1>
-    <p>
-      This starter gives you everything you need to start working on a new
-      project using Node. If you're looking for something a little more 
-      opinionated, try remixing
-      <a href="https://glitch.com/edit/#!/remix/glitch-hello-node"
-        >~glitch-hello-node</a
-      >.
-    </p>
-        
+        <div id="loading">Loading WASM...</div>
   </body>
 </html>

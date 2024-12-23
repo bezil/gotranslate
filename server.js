@@ -10,6 +10,11 @@ const fastify = require("fastify")({
 fastify.register(require("@fastify/static"), {
   root: path.join(__dirname, "public"),
   prefix: "/", // optional: default '/'
+  setHeaders: (res, path, stat) => {
+    if (path.endsWith('.wasm')) {
+      res.setHeader('Content-Type', 'application/wasm')
+    }
+  }
 });
 
 // fastify-formbody lets us parse incoming forms
