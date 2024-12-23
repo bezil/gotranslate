@@ -12,12 +12,7 @@
     <script src="/public/wasm_exec.js"></script>
     <script src="/public/webgl-debug.js"></script>
     <script>
-        const go = new Go();
-        WebAssembly.instantiateStreaming(fetch("{{wasmUrl}}"), go.importObject).then((result) => {
-            go.run(result.instance);
-        }).catch((err) => {
-            console.error('WASM loading failed:', err);
-        });
+        WebAssembly.instantiateStreaming(fetch("https://cdn.glitch.me/60241d7c-2c8f-4150-87a5-0b0e7286262a/gotranslate.wasm?v=1734965890323"), go.importObject)
     </script>
   </head>
   <body>
