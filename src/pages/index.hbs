@@ -95,12 +95,7 @@
 							const go = new Go();
 							WebAssembly.instantiateStreaming(
                 fetch("https://wasm.uicaster.com/n/ax69czjbwz8w/b/devbez-bucket/o/gotranslate.wasm"), go.importObject)
-                  .then(response => {
-                console.log("herere", response)
-                response.arrayBuffer()
-              })
-                  .then(bytes => WebAssembly.instantiate(bytes, go.importObject))
-                .then((result) => {
+                  .then((result) => {
 								main.innerHTML = "";
                 
 								go.run(result.instance);
