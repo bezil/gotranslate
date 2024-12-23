@@ -34,11 +34,11 @@
 			}
 		</style>
 		<link rel="stylesheet" href="/public/dark.css" media="(prefers-color-scheme: dark)" />
-		<link rel="stylesheet" href="/public/light.css" media="(prefers-color-scheme: light)" />
+		<link rel="stylesheet" href="../../public/light.css" media="(prefers-color-scheme: light)" />
 		<meta charset="utf-8">
 		<link rel="icon" type="image/png" href="https://cdn.glitch.global/60241d7c-2c8f-4150-87a5-0b0e7286262a/icon.png?v=1734967901283">
 		
-			<script src="/public/webgl-debug.js"></script>
+			<script src="webgl-debug.js"></script>
 		
 			<script>
 				function getChromeVersion() {
@@ -81,7 +81,7 @@
 				if (webgl_support()) {
 					if (wasmBuild && WebAssembly) {
 						action.innerHTML = "Downloading wasm_exec.js"
-						async_load("/public/wasm_exec.js", function(){
+						async_load("/src/pages/wasm_exec.js", function(){
 							// WebAssembly.instantiateStreaming is not currently available in Safari
 							if (WebAssembly && !WebAssembly.instantiateStreaming) { // polyfill
 								WebAssembly.instantiateStreaming = async (resp, importObject) => {
@@ -113,15 +113,13 @@
 		<div id="main">
 			<div class="centered-container">
 			<table class="center">
-				<tr><td><img class="application-icon" src="icon.png" alt="Application icon"/></td></tr>
+				<tr><td><img class="application-icon" src="https://cdn.glitch.global/60241d7c-2c8f-4150-87a5-0b0e7286262a/icon.png?v=1734967901283" alt="Application icon"/></td></tr>
 				<tr><td><div class="centered-text"><div class="application-name">gotranslate</div></div></td></tr>
 				<tr><td><div class="centered-text"><div class="application-version">v0.0.1</div></div></td></tr>
 				<tr>
 					<td>
 						<picture>
-  							<source srcset="\publicspinner_dark.gif" media="(prefers-color-scheme: dark)" />
-  							<source srcset="spinner_light.gif" media="(prefers-color-scheme: light)" />
-  							<img class="spinner" src="spinner_light.gif" />
+  							<img class="spinner" src="https://cdn.glitch.com/c62efef6-1e75-45cf-b248-afeccdda9477%2Fillustration.svg?v=1618196069568" />
 						</picture>
 					</td>
 				</tr>
