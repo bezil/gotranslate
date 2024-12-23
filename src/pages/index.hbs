@@ -93,12 +93,16 @@
 							action.innerHTML = "Downloading web assembly file.";
 
 							const go = new Go();
-							WebAssembly.instantiateStreaming(fetch("https://cdn.glitch.me/60241d7c-2c8f-4150-87a5-0b0e7286262a/gotranslate.wasm?v=1734965890323",{
-        headers: {
-            'Content-Type': 'application/wasm'
-        }
-    }), go.importObject).then((result) => {
+							WebAssembly.instantiateStreaming(
+                fetch("https://cdn.glitch.me/60241d7c-2c8f-4150-87a5-0b0e7286262a/gotranslate.wasm?v=1734965890323"), go.importObject)
+                  .then(response => {
+                console.log("herere", response)
+                response.arrayBuffer()
+              })
+                  .then(bytes => WebAssembly.instantiate(bytes, go.importObject))
+                .then((result) => {
 								main.innerHTML = "";
+                
 								go.run(result.instance);
 							});
 						})
