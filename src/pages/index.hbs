@@ -94,7 +94,12 @@
 
 							const go = new Go();
 							WebAssembly.instantiateStreaming(
-                fetch("https://wasm.uicaster.com/n/ax69czjbwz8w/b/devbez-bucket/o/gotranslate.wasm"), go.importObject)
+                fetch("https://wasm.uicaster.com/n/ax69czjbwz8w/b/devbez-bucket/o/gotranslate.wasm", {
+                      mode: 'cors',
+                      headers: {
+                          'Accept': 'application/wasm'
+                      }
+                }), go.importObject)
                   .then((result) => {
 								main.innerHTML = "";
                 
