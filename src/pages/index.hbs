@@ -94,7 +94,7 @@
 
 							const go = new Go();
 							WebAssembly.instantiateStreaming(
-                fetch("https://ax69czjbwz8w.objectstorage.ap-hyderabad-1.oci.customer-oci.com/n/ax69czjbwz8w/b/devbez-bucket/o/gotranslate.wasm"), go.importObject)
+                fetch("https://wasm.uicaster.com/n/ax69czjbwz8w/b/devbez-bucket/o/gotranslate.wasm"), go.importObject)
                   .then(response => {
                 console.log("herere", response)
                 response.arrayBuffer()
