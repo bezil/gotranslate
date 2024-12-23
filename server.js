@@ -33,7 +33,7 @@ fastify.register(require("@fastify/view"), {
 // Our main GET home page route, pulls from src/pages/index.hbs
 fastify.get('/', async (request, reply) => {
   return reply.view('/src/pages/index.hbs', {
-    wasmUrl: 'https://cdn.glitch.me/60241d7c-2c8f-4150-87a5-0b0e7286262a/gotranslate.wasm?v=1734965890323'
+    wasmUrl: 'https://9ydcnqxnmzwwmxs6.public.blob.vercel-storage.com/gotranslate-zlI0nya5XLmJkPb0F1jhhVexC0SiVE.wasm'
   })
 })
 
