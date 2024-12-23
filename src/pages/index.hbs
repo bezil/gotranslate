@@ -8,7 +8,13 @@
     <title>Hello Node!</title>
 
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />   
+    <link rel="stylesheet" href="/style.css" />  
+    <script>
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("{{wasmUrl}}"), go.importObject).then((result) => {
+            go.run(result.instance);
+        });
+    </script>
   </head>
   <body>
     

@@ -23,14 +23,11 @@ fastify.register(require("@fastify/view"), {
 });
 
 // Our main GET home page route, pulls from src/pages/index.hbs
-fastify.get("/", function (request, reply) {
-  // params is an object we'll pass to our handlebars template
-  let params = {
-    greeting: "Hello Node!",
-  };
-  // request.query.paramName <-- a querystring example
-  return reply.view("/src/pages/index.hbs", params);
-});
+fastify.get('/', async (request, reply) => {
+  return reply.view('/src/pages/index.hbs', {
+    wasmUrl: 'https://cdn.glitch.me/60241d7c-2c8f-4150-87a5-0b0e7286262a/gotranslate.wasm?v=1734965890323'
+  })
+})
 
 // A POST route to handle form submissions
 fastify.post("/", function (request, reply) {
