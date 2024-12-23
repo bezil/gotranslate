@@ -10,9 +10,12 @@ const fastify = require("fastify")({
 fastify.register(require("@fastify/static"), {
   root: path.join(__dirname, "public"),
   prefix: "/", // optional: default '/'
+  decorateReply: false,
   setHeaders: (res, path, stat) => {
     if (path.endsWith('.wasm')) {
-      res.setHeader('Content-Type', 'application/wasm')
+      res.setHeader('Content-Type', 'application/wasm');
+    } else if (path.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
     }
   }
 });
